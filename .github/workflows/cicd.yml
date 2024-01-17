@@ -1,0 +1,24 @@
+name: Deploy to Azure App Service
+
+on: 
+  push:
+    branches:
+      azure_demo_app
+
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v3
+      - name: Setup Node.js versions
+        used: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install Dependencies
+        run: npm insatll
+      - name: Deploye to Azure App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: demoappsuraj
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
