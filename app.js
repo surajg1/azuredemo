@@ -15,5 +15,5 @@ app.get('', (req, res, next) => {
 app.post("/uploadBlob", uploadStorage.single('avatar'), uploadController);
 
 app.listen(8080, () => {
-    console.log('Server is running on 3000!');
+    console.log('Server is running on 8080!');
 });
